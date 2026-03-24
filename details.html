@@ -58,6 +58,11 @@
             border: 1px solid rgba(255,255,255,0.10);
             box-shadow: var(--shadow);
           }
+          .photo-banner.secondary{
+            min-height: 190px;
+            margin-top: 14px;
+            background: linear-gradient(90deg, rgba(11,18,32,0.20), rgba(11,18,32,0.78)), url("assets/cowboys-golf-club.webp") center/cover no-repeat;
+          }
           @media (max-width: 760px){
             .photo-banner{ min-height: 190px; }
           }
@@ -111,7 +116,42 @@
             <div class="card"><h4>Premium Pairings</h4><p>Intentional foursome composition where possible.</p></div>
             <div class="card"><h4>Partner Visibility</h4><p>Tiered placements that feel upscale — not cluttered.</p></div>
           </div>
+
+          <div class="photo-banner secondary" role="img" aria-label="Cowboys Golf Club course view"></div>
         </div>
+
+        <section class="section">
+          <div class="section-title">
+            <div>
+              <h3>Sponsors</h3>
+              <p>HEB leads the room. Additional partners are showcased as inventory is finalized.</p>
+            </div>
+            <a class="btn" href="pro-shop.html#sponsor">View Sponsorships</a>
+          </div>
+
+          <div class="card">
+            <div class="sponsor-stack" aria-label="Sponsor showcase">
+              <div class="sponsor-tier">
+                <div class="sponsor-tier-label">Title Sponsor</div>
+                <div class="sponsor-tile sponsor-tile-title">
+                  <img src="assets/logos/heb.png" alt="HEB (Title Sponsor)" loading="lazy" />
+                </div>
+              </div>
+
+              <div class="sponsor-tier" style="margin-top:14px">
+                <div class="sponsor-tier-label">Sponsors</div>
+                <div class="sponsor-grid sponsor-grid-secondary">
+                  <div class="sponsor-tile"><img src="assets/logos/southwest.png" alt="Southwest Airlines (Sponsor placeholder)" loading="lazy" /></div>
+                  <div class="sponsor-tile"><img src="assets/logos/att.png" alt="AT&amp;T (Sponsor placeholder)" loading="lazy" /></div>
+                  <div class="sponsor-tile"><img src="assets/logos/ryan.png" alt="Ryan (Sponsor placeholder)" loading="lazy" /></div>
+                  <div class="sponsor-tile"><img src="assets/logos/ainc.png" alt="AINC (Sponsor placeholder)" loading="lazy" /></div>
+                  <div class="sponsor-tile"><img src="assets/logos/other.webp" alt="Sponsor placeholder" loading="lazy" /></div>
+                </div>
+              </div>
+            </div>
+            <p class="small" style="margin-top:10px">Logos shown are placeholders and will be swapped as sponsor inventory is finalized.</p>
+          </div>
+        </section>
 
       </div>
     </section>

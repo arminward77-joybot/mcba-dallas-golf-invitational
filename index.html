@@ -96,6 +96,24 @@
 
     <section class="section">
       <div class="container">
+        <style>
+          .photo-card{
+            border-radius: 18px;
+            min-height: 240px;
+            background: linear-gradient(180deg, rgba(11,18,32,0.35), rgba(11,18,32,0.65)), url("assets/couple-golf-cart.jpg") center/cover no-repeat;
+            border: 1px solid rgba(255,255,255,0.10);
+            box-shadow: var(--shadow);
+          }
+          .photo-inline{
+            border-radius: 18px;
+            min-height: 170px;
+            background: linear-gradient(180deg, rgba(11,18,32,0.15), rgba(11,18,32,0.70)), url("assets/hand-on-tee.jpg") center/cover no-repeat;
+            border: 1px solid rgba(255,255,255,0.10);
+          }
+          @media (max-width: 980px){
+            .photo-card{ min-height: 200px; }
+          }
+        </style>
         <div class="section-title">
           <div>
             <h3>Why this invitational</h3>
@@ -103,11 +121,18 @@
           </div>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-2" style="align-items: stretch">
           <div class="card">
             <h4>Curated Room</h4>
             <p>MCBA members and Dallas-area leaders — a credible network with real business gravity.</p>
+            <hr class="sep" />
+            <div class="badge">Curated room • Premium hospitality • Real relationships</div>
           </div>
+
+          <div class="photo-card" role="img" aria-label="Golf cart moment on the course"></div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 14px">
           <div class="card">
             <h4>Premium Flow</h4>
             <p>Registration, partnerships, and logistics built for mobile-first decision making.</p>
@@ -116,6 +141,7 @@
             <h4>Visible Partnership</h4>
             <p>Clear tiers, elevated signage, and brand placement that feels exclusive — not noisy.</p>
           </div>
+          <div class="card photo-inline" role="img" aria-label="Hand placing golf ball on tee"></div>
         </div>
       </div>
     </section>

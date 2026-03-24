@@ -50,6 +50,18 @@
   <main>
     <section class="section" style="padding-top: 34px;">
       <div class="container">
+        <style>
+          .photo-banner{
+            border-radius: 18px;
+            min-height: 220px;
+            margin-top: 14px;
+            background: linear-gradient(90deg, rgba(11,18,32,0.20), rgba(11,18,32,0.78)), url("assets/golfer-putting-walking.jpg") center/cover no-repeat;
+            border: 1px solid rgba(255,255,255,0.10);
+          }
+          @media (max-width: 760px){
+            .photo-banner{ min-height: 180px; }
+          }
+        </style>
         <div class="section-title">
           <div>
             <h3>The Pro Shop</h3>
@@ -63,6 +75,7 @@
 
         <div class="card">
           <div class="badge">Checkout placeholder</div>
+          <div class="photo-banner" role="img" aria-label="Golfer putting with golden-hour light"></div>
           <p style="margin-top:10px; color: rgba(255,255,255,0.78)">
             This build includes clean conversion UI. For secure payments, we’ll wire these buttons to Stripe Checkout (recommended),
             a Givebutter/Donorbox flow, or an internal MCBA processor.

@@ -49,12 +49,26 @@
   <main>
     <section class="section" style="padding-top: 34px;">
       <div class="container">
+        <style>
+          .photo-banner{
+            border-radius: 18px;
+            min-height: 220px;
+            margin: 12px 0 18px;
+            background: linear-gradient(90deg, rgba(11,18,32,0.25), rgba(11,18,32,0.78)), url("assets/hat-of-golfer.jpg") center/cover no-repeat;
+            border: 1px solid rgba(255,255,255,0.10);
+          }
+          @media (max-width: 760px){
+            .photo-banner{ min-height: 180px; }
+          }
+        </style>
         <div class="section-title">
           <div>
             <h3>Contact</h3>
             <p>Simple, direct, and handled quickly. Use the form or email the right team.</p>
           </div>
         </div>
+
+        <div class="photo-banner" role="img" aria-label="Golf hat on a course"></div>
 
         <div class="grid-2">
           <div class="card">

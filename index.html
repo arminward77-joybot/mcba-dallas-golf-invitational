@@ -4,230 +4,244 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MCBA Dallas Golf Invitational</title>
-  <meta name="description" content="The exclusive digital clubhouse for the MCBA Dallas Golf Invitational — register to play or become a premium partner." />
+  <meta name="description" content="MCBA Dallas Golf Invitational" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lustria&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #05070b;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.88);
+      --muted: rgba(255,255,255,0.70);
+      --accent: #c7a24b;
+      --shadow: 0 30px 80px rgba(0,0,0,0.38);
+      --radius: 18px;
+    }
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(900px 600px at 10% 0%, rgba(199,162,75,0.12), transparent 55%), var(--bg);
+      color: var(--text);
+    }
+    a{ color: inherit; text-decoration: none; }
+
+    .container{ width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    /* Simple placeholder nav */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5,7,11,0.70);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight: 600; letter-spacing: 0.2px; }
+    .mark{ width:36px; height:36px; border-radius: 12px; display:grid; place-items:center; background: rgba(199,162,75,0.16); border: 1px solid rgba(199,162,75,0.28); }
+    .links{ display:flex; gap: 10px; flex-wrap: wrap; }
+    .pill{ padding: 9px 12px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); font-size: 13px; color: rgba(255,255,255,0.85); }
+    .pill.primary{ background: rgba(199,162,75,0.16); border-color: rgba(199,162,75,0.30); }
+    .pill.disabled{ opacity: 0.55; pointer-events:none; }
+
+    /* Hero based on JSON */
+    .hero{
+      min-height: 90vh;
+      padding: 44px 0;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.70)),
+        url("https://riski.foxcreation.net/clubgolf/wp-content/uploads/sites/5/2022/11/Hero2.jpg") top center/cover no-repeat;
+    }
+    @media (max-width: 980px){ .hero{ min-height: 65vh; } }
+    @media (max-width: 640px){ .hero{ min-height: 75vh; } }
+
+    .hero-inner{
+      width: min(640px, 100%);
+      padding: 18px;
+      margin-right: 35%;
+    }
+    @media (max-width: 980px){ .hero-inner{ margin-right: 10%; } }
+    @media (max-width: 640px){ .hero-inner{ margin-right: 0; text-align:center; } }
+
+    .eyebrow{ text-transform: uppercase; letter-spacing: 0.28em; font-size: 12px; color: rgba(255,255,255,0.82); margin: 0 0 10px; }
+    .divider{ height:2px; width: 37%; background: rgba(199,162,75,0.95); border-radius: 99px; margin: 10px 0 18px; }
+    @media (max-width: 980px){ .divider{ width: 44%; } }
+    @media (max-width: 640px){ .divider{ width: 65%; margin-left:auto; margin-right:auto; } }
+
+    h1{
+      margin: 0 0 16px;
+      font-family: Lustria, ui-serif, Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: 1.5px;
+      word-spacing: 5px;
+    }
+    .lede{ color: rgba(255,255,255,0.76); font-size: 16px; line-height: 1.8; max-width: 52ch; }
+    .actions{ display:flex; gap: 14px; align-items:center; flex-wrap:wrap; margin-top: 18px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(10,14,20,0.40);
+      color: rgba(255,255,255,0.92);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .btn.disabled{ opacity: 0.55; pointer-events:none; }
+
+    .video{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 2px solid rgba(199,162,75,0.85);
+      background: rgba(199,162,75,0.14);
+      color: rgba(255,255,255,0.92);
+      pointer-events:none;
+      opacity: 0.75;
+    }
+    .play{
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,0.10);
+      border: 2px solid rgba(255,255,255,0.28);
+      font-weight: 700;
+    }
+
+    /* Quick Service section (structure-only, icons remote) */
+    .quick{
+      background: #0b1020;
+      padding: 0;
+    }
+    .quick-inner{
+      padding: 44px 0;
+    }
+    .quick-bar{
+      margin-top: -70px;
+      background: rgba(0,0,0,0.0);
+    }
+    .quick-card{
+      border-radius: 0;
+      background: rgba(10,14,20,0.35);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+    .quick-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 980px){ .quick-grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px){ .quick-grid{ grid-template-columns: 1fr; } }
+
+    .service{ text-align:center; padding: 10px; }
+    .service img{ width: 54px; height: 54px; object-fit: contain; margin-bottom: 14px; }
+    .service h3{ margin: 6px 0 8px; font-family: Lustria, serif; font-size: 20px; letter-spacing: 1.5px; word-spacing: 5px; }
+    .service p{ margin:0; color: rgba(255,255,255,0.72); line-height: 1.8; }
+
+    footer{ padding: 36px 0 60px; color: rgba(255,255,255,0.55); font-size: 12px; }
+  </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html" aria-label="MCBA Dallas Golf Invitational Home">
-        <div class="brand-mark" aria-hidden="true">⛳</div>
-        <div>
-          <h1>MCBA Dallas Golf Invitational</h1>
-          <p>Private clubhouse experience • Dallas, TX</p>
-        </div>
-      </a>
-
-      <nav class="nav-links" aria-label="Primary">
-        <a href="details.html">Event Details</a>
-        <a href="pro-shop.html">Registration & Sponsorships</a>
-        <a href="contact.html">Contact / FAQ</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="mark">⛳</div>
+        <div>MCBA Dallas Golf Invitational</div>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a class="pill disabled" href="#">Event Details</a>
+        <a class="pill disabled" href="#">Sponsorships</a>
+        <a class="pill primary disabled" href="#">Register</a>
       </nav>
-
-      <div class="nav-cta">
-        <button class="btn btn-ghost hamburger" data-menu aria-label="Open menu">Menu</button>
-        <a class="btn" href="pro-shop.html#sponsor">Become a Premium Partner</a>
-        <a class="btn btn-primary" href="pro-shop.html#register">Secure Your Foursome</a>
-      </div>
-    </div>
-
-    <div class="container" data-panel data-open="false" style="display:none; padding-bottom: 14px;">
-      <div class="card">
-        <div style="display:flex; gap:10px; flex-wrap:wrap">
-          <a class="btn" href="details.html">Event Details</a>
-          <a class="btn" href="pro-shop.html#register">Register</a>
-          <a class="btn" href="pro-shop.html#sponsor">Sponsorships</a>
-          <a class="btn" href="contact.html">Contact / FAQ</a>
-        </div>
-      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <!-- HERO SECTION (from JSON) -->
+    <section class="hero" aria-label="Hero">
       <div class="container">
-        <div class="hero-slab" role="img" aria-label="Pristine Dallas fairway at golden hour">
-          <div class="hero-inner">
-            <div>
-              <div class="kicker"><span class="dot"></span> Exclusive networking • Elevated golf • Dallas heritage</div>
-              <h2>The Dallas Golf Invitational built for members, partners, and decision-makers.</h2>
-              <p>
-                Welcome to the official digital clubhouse for the MCBA Dallas Golf Invitational — where the field is elite,
-                the experience is seamless, and the connections are real.
-              </p>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="pro-shop.html#register">Secure Your Foursome / Register to Play</a>
-                <a class="btn" href="pro-shop.html#sponsor">Become a Premium Partner</a>
-                <a class="btn btn-ghost" href="details.html">View Schedule & Course</a>
-              </div>
-              <p class="small" style="margin-top:12px">Tip: replace <code>assets/hero.jpg</code> with your final moody Dallas course image.</p>
+        <div class="hero-inner">
+          <p class="eyebrow">Welcome To ClubGolf</p>
+          <div class="divider" aria-hidden="true"></div>
+          <h1>Play Golf Like A Pro</h1>
+          <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. volutpat justo laoreet sit amet.</p>
+          <div class="actions">
+            <a class="btn disabled" href="#" aria-disabled="true">Read More</a>
+            <div class="video" aria-label="Play Video (disabled)">
+              <span class="play">▶</span>
+              <span>Play Video</span>
             </div>
-
-            <aside class="hero-card">
-              <h3>AT A GLANCE</h3>
-              <div class="meta-grid">
-                <div class="meta">
-                  <div class="label">Format</div>
-                  <div class="value">Shotgun Start</div>
-                </div>
-                <div class="meta">
-                  <div class="label">Audience</div>
-                  <div class="value">Executives + Partners</div>
-                </div>
-                <div class="meta">
-                  <div class="label">Experience</div>
-                  <div class="value">Premium Hospitality</div>
-                </div>
-                <div class="meta">
-                  <div class="label">Location</div>
-                  <div class="value">Dallas, TX</div>
-                </div>
-              </div>
-              <hr class="sep" />
-              <div class="badge">Limited sponsor inventory • Secure your placement</div>
-            </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <style>
-          .photo-card{
-            border-radius: 18px;
-            min-height: 240px;
-            background: linear-gradient(180deg, rgba(11,18,32,0.35), rgba(11,18,32,0.65)), url("assets/couple-golf-cart.jpg") center/cover no-repeat;
-            border: 1px solid rgba(255,255,255,0.10);
-            box-shadow: var(--shadow);
-          }
-          .photo-inline{
-            border-radius: 18px;
-            min-height: 170px;
-            background: linear-gradient(180deg, rgba(11,18,32,0.15), rgba(11,18,32,0.70)), url("assets/hand-on-tee.jpg") center/cover no-repeat;
-            border: 1px solid rgba(255,255,255,0.10);
-          }
-          @media (max-width: 980px){
-            .photo-card{ min-height: 200px; }
-          }
-        </style>
-        <div class="section-title">
-          <div>
-            <h3>Why this invitational</h3>
-            <p>A streamlined, high-end day designed to respect your time — and maximize the quality of the room.</p>
-          </div>
-        </div>
-
-        <div class="grid-2" style="align-items: stretch">
-          <div class="card">
-            <h4>Curated Room</h4>
-            <p>MCBA members and Dallas-area leaders — a credible network with real business gravity.</p>
-            <hr class="sep" />
-            <div class="badge">Curated room • Premium hospitality • Real relationships</div>
-          </div>
-
-          <div class="photo-card" role="img" aria-label="Golf cart moment on the course"></div>
-        </div>
-
-        <div class="grid-3" style="margin-top: 14px">
-          <div class="card">
-            <h4>Premium Flow</h4>
-            <p>Registration, partnerships, and logistics built for mobile-first decision making.</p>
-          </div>
-          <div class="card">
-            <h4>Visible Partnership</h4>
-            <p>Clear tiers, elevated signage, and brand placement that feels exclusive — not noisy.</p>
-          </div>
-          <div class="card photo-inline" role="img" aria-label="Hand placing golf ball on tee"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h3>Sponsor showcase</h3>
-            <p>Early partners set the tone. Displaying sponsors builds social proof and momentum.</p>
-          </div>
-          <a class="btn" href="pro-shop.html#sponsor">View Sponsorships</a>
-        </div>
-
-        <div class="card">
-          <div class="sponsor-stack" aria-label="Sponsor showcase">
-            <div class="sponsor-tier">
-              <div class="sponsor-tier-label">Title Sponsor</div>
-              <div class="sponsor-tile sponsor-tile-title">
-                <img src="assets/logos/heb.png" alt="HEB (Title Sponsor)" loading="lazy" />
+    <!-- QUICK SERVICE SECTION (from JSON) -->
+    <section class="quick" aria-label="Quick services">
+      <div class="container quick-inner">
+        <div class="quick-bar">
+          <div class="quick-card">
+            <div class="quick-grid">
+              <div class="service">
+                <img src="https://riski.foxcreation.net/clubgolf/wp-content/uploads/sites/5/2022/11/icon4.png" alt="Golf Course icon" loading="lazy" />
+                <h3>Golf Course</h3>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit.</p>
               </div>
-            </div>
-
-            <div class="sponsor-tier" style="margin-top:14px">
-              <div class="sponsor-tier-label">Sponsors</div>
-              <div class="sponsor-grid sponsor-grid-secondary">
-                <div class="sponsor-tile"><img src="assets/logos/southwest.png" alt="Southwest Airlines (Sponsor placeholder)" loading="lazy" /></div>
-                <div class="sponsor-tile"><img src="assets/logos/att.png" alt="AT&amp;T (Sponsor placeholder)" loading="lazy" /></div>
-                <div class="sponsor-tile"><img src="assets/logos/ryan.png" alt="Ryan (Sponsor placeholder)" loading="lazy" /></div>
-                <div class="sponsor-tile"><img src="assets/logos/ainc.png" alt="Ashford Inc. (Sponsor placeholder)" loading="lazy" /></div>
-                <div class="sponsor-tile"><img src="assets/logos/other.webp" alt="Clay Cooley (Sponsor placeholder)" loading="lazy" /></div>
+              <div class="service">
+                <img src="https://riski.foxcreation.net/clubgolf/wp-content/uploads/sites/5/2022/11/icon2.png" alt="Golf Club icon" loading="lazy" />
+                <h3>Golf Club</h3>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit.</p>
+              </div>
+              <div class="service">
+                <img src="https://riski.foxcreation.net/clubgolf/wp-content/uploads/sites/5/2022/11/icon.png" alt="Golf Academy icon" loading="lazy" />
+                <h3>Golf Academy</h3>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit.</p>
+              </div>
+              <div class="service">
+                <img src="https://riski.foxcreation.net/clubgolf/wp-content/uploads/sites/5/2022/11/icon55.png" alt="Fitness Center icon" loading="lazy" />
+                <h3>Fitnes Center</h3>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit.</p>
               </div>
             </div>
           </div>
-
-          <p class="small" style="margin-top:10px">Logos shown are placeholders and will be swapped as sponsor inventory is finalized.</p>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h3>Two-click conversion</h3>
-            <p>Register or sponsor without hunting — both CTAs stay prominent across the site.</p>
-          </div>
-        </div>
-        <div class="grid-2">
-          <div class="card">
-            <h4>Register to play</h4>
-            <p>Individual golfer and foursome options, with a frictionless mobile checkout flow.</p>
-            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn btn-primary" href="pro-shop.html#register">Secure Your Foursome</a>
-              <a class="btn" href="details.html">View Itinerary</a>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Become a premium partner</h4>
-            <p>Tiered sponsorships with clear value: visibility, hospitality, and access to the room.</p>
-            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn btn-primary" href="pro-shop.html#sponsor">View Sponsorship Tiers</a>
-              <a class="btn" href="contact.html">Ask a Question</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- NOTE: Remaining JSON sections will be added page-by-page as you send them. -->
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
-        <div>
-          <div style="font-family:Playfair Display, serif; font-size: 14px; color: rgba(255,255,255,0.85)">MCBA Dallas Golf Invitational</div>
-          <div class="small">Digital clubhouse — modern, secure, and built for sponsors.</div>
-        </div>
-        <div class="small">
-          <a href="pro-shop.html#register">Register</a> • <a href="pro-shop.html#sponsor">Sponsorships</a> • <a href="contact.html">Contact</a>
-        </div>
-      </div>
-      <div class="small" style="margin-top:14px">© <span id="year"></span> MCBA. All rights reserved.</div>
-    </div>
+  <footer>
+    <div class="container">© <span id="year"></span> MCBA. All rights reserved.</div>
   </footer>
 
-  <script src="script.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
